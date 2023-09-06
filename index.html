@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+    <link rel="stylesheet" href="love.css">
+</head>
+<body>
+    
+    <div class="container">
+        <input type="text" placeholder="Lover's Name" id="male">
+        <input type="text" placeholder="Player's Name" id="female">
+
+        <br>
+
+        <button onclick="cal()">Calculate</button>
+    </div>
+
+   <div class="disp">
+
+    <div id="result"></div>
+
+    <div id="disp"></div>
+
+    <div id="displayer"></div>
+
+   </div>
+
+    <script>
+
+        var inputs = []
+        var statement = []
+        var fig = Math.round(Math.random()*100);
+
+        function cal() {
+            if (male.value !="" && female.value !=""){
+                var Player = {
+                    malename: male.value,
+                    femalename: female.value
+                }
+
+                inputs.push(Player)
+                console.log(inputs);
+                male.value = ""
+                female.value = ""
+                display()
+
+            }else{
+                alert("You need to fill up all input")
+            }
+
+            if (fig <=30){
+                result.innerHTML = "<h1>You do not macth</h1>"
+               console.log("RUN FOR YOUR LIFE")
+               displayer.innerHTML ="<h2>RUN FOR YOUR LIFE</h2>"
+            }else if(fig <=40){
+                result.innerHTML = "<h1>You do not macth</h2>"
+                console.log("RUN FOR YOUR LIFE")
+                displayer.innerHTML ="<h2>Watch are closely before you take a silly step</h2>"
+            }else if(fig <=50){
+                result.innerHTML = "<h1>You macth</h1>"
+                console.log("RUN FOR YOUR LIFE")
+                displayer.innerHTML ="<h2>Sit down and think twice</h2>"
+            }else if(fig <=70){
+                result.innerHTML = "<h1>You macth</h1>"
+                console.log("RUN FOR YOUR LIFE")
+                displayer.innerHTML ="<h2>Give her a trier</h2>"
+            }else if(fig <=90){
+                result.innerHTML = "<h1>You macth</h1>"
+                console.log("RUN FOR YOUR LIFE")
+                displayer.innerHTML ="<h2>Go and propose</h2>"
+            }else if(fig <=100){
+                result.innerHTML = "<h1>You macth</h1>"
+                console.log("RUN FOR YOUR LIFE")
+                displayer.innerHTML ="<h2>Go and Propose, don't think twice</h2>"
+            }
+            
+        }
+
+        function display(){
+            result.innerHTML = ""
+            disp.innerHTML = ""
+            displayer.innerHTML = ""
+            disp.innerHTML = `<h3 class="fig">${fig}%</h3>`
+
+            for (i=0; i< inputs.length; i++){
+                disp.innerHTML +=`
+                <p>${inputs[i].malename} is ${fig}% to marry ${inputs[i].femalename}</p>
+                <p>${statement}</p>
+                `
+            }
+        }
+
+    </script>
+
+</body>
+</html>
