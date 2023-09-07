@@ -6,7 +6,7 @@
 
 @media screen and (min-width: 400px) {
     body{
-        background-image: linear-gradient(rgba(100, 200, 900, 1), rgba(0,0,0,0.5)), url(IMG_1028.JPG);
+        background-image: linear-gradient(rgba(100, 200, 900, 1), rgba(0,0,0,0.5)), url(sunset-815270__480.jpg);
         background-size: 100%;
         background-repeat: no-repeat;
     }
@@ -16,7 +16,7 @@
 @media screen and (min-width: 1200px){
     body{
         align-items: center;
-        background-image: url(images/sunset-815270__480.jpg);
+        background-image: url(sunset-815270__480.jpg);
         background-repeat: no-repeat;
         background-size: 100%;
     }
