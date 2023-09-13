@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Calculator</title>
-    <link rel="stylesheet" href="love.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     
@@ -17,19 +17,29 @@
         <button onclick="cal()">Calculate</button>
     </div>
 
-   <div class="disp">
+    
+    <div class="disp">
 
-    <div id="result"></div>
+        <center> <div id="result"></div> </center>
+ 
+         <center> <div id="disp"></div> </center>
+ 
+        <center>  <div id="displayer"></div> </center>
+ 
+    </div>
 
-    <div id="disp"></div>
+   <button onclick="newPage()" class="bob">Check History</button>
 
-    <div id="displayer"></div>
-
-   </div>
+   <center>
+        <div class="history">
+            <center><div id="his"></div></center>
+           <center> <div id="rel"></div></center>
+        </div>
+   </center>
 
     <script>
 
-        var inputs = []
+        let inputs = []
         var statement = []
         var fig = Math.round(Math.random()*100);
 
@@ -54,7 +64,7 @@
                 result.innerHTML = "<h1>You do not macth</h1>"
                console.log("RUN FOR YOUR LIFE")
                displayer.innerHTML ="<h2>RUN FOR YOUR LIFE</h2>"
-            }else if(fig <=40){
+            }else if(fig <=49){
                 result.innerHTML = "<h1>You do not macth</h2>"
                 console.log("RUN FOR YOUR LIFE")
                 displayer.innerHTML ="<h2>Watch are closely before you take a silly step</h2>"
@@ -76,12 +86,15 @@
                 displayer.innerHTML ="<h2>Go and Propose, don't think twice</h2>"
             }
             
+            localStorage.setItem('names',JSON.stringify(inputs))
         }
 
         function display(){
             result.innerHTML = ""
             disp.innerHTML = ""
             displayer.innerHTML = ""
+            his.innerHTML = "" 
+            rel.innerHTML = ""
             disp.innerHTML = `<h3 class="fig">${fig}%</h3>`
 
             for (i=0; i< inputs.length; i++){
@@ -90,6 +103,29 @@
                 <p>${statement}</p>
                 `
             }
+        }
+
+        function newPage() {
+            his.innerHTML += `
+                <h1>HISTORY</h1>
+            `
+
+            let allNames = []
+
+            allNames = JSON.parse(localStorage.getItem("names"))
+            
+            for (let index = 0; index < allNames.length; index++) {
+                
+                rel.innerHTML += `
+                    <div>${allNames[index].malename} and ${allNames[index].femalename} are a ${fig} match</div>
+                    <button onclick="deleteAll()" >Delete All</button>
+                `
+            }
+        }
+
+        function deleteAll() {
+            // allnames.splice(0)
+            rel.innerHTML =''
         }
 
     </script>
